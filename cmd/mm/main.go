@@ -31,14 +31,14 @@ func main() {
 		logrus.Fatalf("failed to prepare deps: %v", err)
 	}
 
-	Stx := mediamogul.NewStx(
+	MediaMogul := mediamogul.NewMediaMogul(
 		deps.Router,
 		deps.NewRelicApp,
 		deps.Log,
 	)
 
 	deps.Log.Infof("Starting: \"%s\" - Build: %s - Version \"%s\"", info.Name, info.Build, info.Version)
-	if err := Stx.Run(); err != nil {
+	if err := MediaMogul.Run(); err != nil {
 		logrus.Println(info.Name+" returned error: ", err)
 	}
 }

@@ -14,7 +14,7 @@ type MediaModul struct {
 	log         *logrus.Entry
 }
 
-func NewStx(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.Entry) *MediaModul {
+func NewMediaMogul(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.Entry) *MediaModul {
 	return &MediaModul{
 		verbose:     false,
 		router:      router,
@@ -24,7 +24,7 @@ func NewStx(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.E
 	}
 }
 
-func (stx MediaModul) Run() error {
+func (mediaMogul MediaModul) Run() error {
 
 	select {}
 }

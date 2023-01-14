@@ -83,7 +83,7 @@ func (srv server) handleS3AudioToNLP() http.HandlerFunc {
 		//w.WriteHeader(http.StatusOK)
 		//w.Write(body.Bytes())
 		//
-		//srv.newRelicApp.RecordCustomEvent("stxNlp: audio processed", map[string]interface{}{
+		//srv.newRelicApp.RecordCustomEvent("mediaMogulNlp: audio processed", map[string]interface{}{
 		//	"bytesLenght": 1000,
 		//})
 

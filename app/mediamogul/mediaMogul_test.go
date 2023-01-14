@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestNewStx(t *testing.T) {
+func TestNewMediaMogul(t *testing.T) {
 	type args struct {
 		router      *mux.Router
 		newRelicApp *newrelic.Application
@@ -23,14 +23,14 @@ func TestNewStx(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewStx(tt.args.router, tt.args.newRelicApp, tt.args.log); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("NewStx() = %v, want %v", got, tt.want)
+			if got := NewMediaMogul(tt.args.router, tt.args.newRelicApp, tt.args.log); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewMediaMogul() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestStx_Run(t *testing.T) {
+func TestMediaMogul_Run(t *testing.T) {
 	type fields struct {
 		verbose     bool
 		router      *mux.Router
@@ -47,14 +47,14 @@ func TestStx_Run(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			stx := MediaModul{
+			mediaMogul := MediaModul{
 				verbose:     tt.fields.verbose,
 				router:      tt.fields.router,
 				debug:       tt.fields.debug,
 				newRelicApp: tt.fields.newRelicApp,
 				log:         tt.fields.log,
 			}
-			if err := stx.Run(); (err != nil) != tt.wantErr {
+			if err := mediaMogul.Run(); (err != nil) != tt.wantErr {
 				t.Errorf("Run() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
