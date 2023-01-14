@@ -1,4 +1,4 @@
-package stx
+package mediamogul
 
 import (
 	"github.com/gorilla/mux"
@@ -17,7 +17,7 @@ func TestNewStx(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *Stx
+		want *MediaModul
 	}{
 		// TODO: Add test cases.
 	}
@@ -47,7 +47,7 @@ func TestStx_Run(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			stx := Stx{
+			stx := MediaModul{
 				verbose:     tt.fields.verbose,
 				router:      tt.fields.router,
 				debug:       tt.fields.debug,

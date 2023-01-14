@@ -1,4 +1,4 @@
-package stx
+package mediamogul
 
 import (
 	"github.com/gorilla/mux"
@@ -6,7 +6,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type Stx struct {
+type MediaModul struct {
 	verbose     bool // config
 	router      *mux.Router
 	debug       bool // config
@@ -14,8 +14,8 @@ type Stx struct {
 	log         *logrus.Entry
 }
 
-func NewStx(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.Entry) *Stx {
-	return &Stx{
+func NewStx(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.Entry) *MediaModul {
+	return &MediaModul{
 		verbose:     false,
 		router:      router,
 		debug:       false,
@@ -24,7 +24,7 @@ func NewStx(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.E
 	}
 }
 
-func (stx Stx) Run() error {
+func (stx MediaModul) Run() error {
 
 	select {}
 }

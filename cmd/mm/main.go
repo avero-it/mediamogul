@@ -4,7 +4,7 @@ import (
 	_ "expvar"
 	"github.com/avero-it/mediamogul/app/config"
 	"github.com/avero-it/mediamogul/app/deps"
-	"github.com/avero-it/mediamogul/app/stx"
+	"github.com/avero-it/mediamogul/app/mediamogul"
 	"github.com/sirupsen/logrus"
 )
 
@@ -12,7 +12,7 @@ import (
 // MAIN
 func main() {
 	info := deps.AppInfo{
-		Name:        "Stx",
+		Name:        "MediaModul",
 		Description: "Speech To X",
 		AppFunction: "NLP processing from audio",
 		Build:       "3",
@@ -31,7 +31,7 @@ func main() {
 		logrus.Fatalf("failed to prepare deps: %v", err)
 	}
 
-	Stx := stx.NewStx(
+	Stx := mediamogul.NewStx(
 		deps.Router,
 		deps.NewRelicApp,
 		deps.Log,

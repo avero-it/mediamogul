@@ -6,19 +6,12 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/avero-it/mediamogul/app/aws"
 	"github.com/go-playground/validator"
 	"github.com/ilyakaznacheev/cleanenv"
 	"github.com/imdario/mergo"
 )
 
 type Config struct {
-	AWS struct {
-		Config aws.Config
-		S3     struct {
-			BucketName string `env:"AWS_S3_BUCKETNAME" validate:"required"`
-		}
-	}
 	HTTPServer struct {
 		Secure   bool   `env:"HTTPSERVER_SECURE"`
 		Host     string `env:"HTTPSERVER_HOST" validate:"required"`

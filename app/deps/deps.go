@@ -1,7 +1,6 @@
 package deps
 
 import (
-	"github.com/avero-it/mediamogul/app/aws/s3"
 	"github.com/avero-it/mediamogul/app/config"
 	"github.com/avero-it/mediamogul/app/httpserver"
 	"github.com/avero-it/mediamogul/app/signals"
@@ -22,7 +21,6 @@ type AppInfo struct {
 type Deps struct {
 	Verbose     bool // config
 	Router      *mux.Router
-	S3Client    s3.Client
 	NewRelicApp *newrelic.Application
 	Log         *logrus.Entry
 }
@@ -60,11 +58,6 @@ func NewDeps(config *config.Config, i AppInfo) (*Deps, error) {
 	deps.Log.Infof("signals: initialized")
 
 	// =====================================================================================================================
-	// S3 CLIENT
-
-	deps.S3Client = s3.CreateS3Client(&config.AWS.S3.BucketName, config.AWS.Config)
-
-	// =====================================================================================================================
 	// HTTP SERVER
 
 	// Create a traced mux router
@@ -72,7 +65,7 @@ func NewDeps(config *config.Config, i AppInfo) (*Deps, error) {
 
 	helper := httpserver.NewHttpHelper()
 
-	server := httpserver.NewHttpServer(deps.Router, deps.S3Client, deps.Log, deps.NewRelicApp, config.STT.URI, helper)
+	server := httpserver.NewHttpServer(deps.Router, deps.Log, deps.NewRelicApp, config.STT.URI, helper)
 
 	server.Routes()
 
@@ -97,22 +90,6 @@ func NewDeps(config *config.Config, i AppInfo) (*Deps, error) {
 	if config.HTTPServer.Secure == true {
 		add_s = "s"
 	}
-
-	//////////////////////////////////////////////////////////////////////
-	// OpenAPI docs (swagger)
-
-	doc := redoc.Redoc{
-		Title:       "Example API",
-		Description: "Example API Description",
-		SpecFile:    "./swagger.yml", // "./openapi.yaml"
-		SpecPath:    "/swagger.yml",  // "/openapi.yaml"
-		DocsPath:    "/docs",
-	}
-
-	http.ListenAndServe(config.DOCServer.Host+":"+config.DOCServer.Port, doc.Handler())
-
-	// TODO: move handler to the same mux, no need for a separate server
-	// TODO: embed swagger.yml in bin
 
 	//////////////////////////////////////////////////////////////////////
 
