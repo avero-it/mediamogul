@@ -17,7 +17,7 @@ func TestNewMediaMogul(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want *MediaModul
+		want *MediaMogul
 	}{
 		// TODO: Add test cases.
 	}
@@ -47,7 +47,7 @@ func TestMediaMogul_Run(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			mediaMogul := MediaModul{
+			mediaMogul := MediaMogul{
 				verbose:     tt.fields.verbose,
 				router:      tt.fields.router,
 				debug:       tt.fields.debug,

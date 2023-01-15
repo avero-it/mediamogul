@@ -6,7 +6,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type MediaModul struct {
+type MediaMogul struct {
 	verbose     bool // config
 	router      *mux.Router
 	debug       bool // config
@@ -14,8 +14,8 @@ type MediaModul struct {
 	log         *logrus.Entry
 }
 
-func NewMediaMogul(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.Entry) *MediaModul {
-	return &MediaModul{
+func NewMediaMogul(router *mux.Router, newRelicApp *newrelic.Application, log *logrus.Entry) *MediaMogul {
+	return &MediaMogul{
 		verbose:     false,
 		router:      router,
 		debug:       false,
@@ -24,7 +24,7 @@ func NewMediaMogul(router *mux.Router, newRelicApp *newrelic.Application, log *l
 	}
 }
 
-func (mediaMogul MediaModul) Run() error {
+func (mediaMogul MediaMogul) Run() error {
 
 	select {}
 }

@@ -12,9 +12,9 @@ import (
 // MAIN
 func main() {
 	info := deps.AppInfo{
-		Name:        "MediaModul",
-		Description: "Speech To X",
-		AppFunction: "NLP processing from audio",
+		Name:        "MediaMogul",
+		Description: "List of media likeds",
+		AppFunction: "Allows people to list and match media content",
 		Build:       "3",
 		Version:     "0.0.0",
 	}
@@ -22,7 +22,7 @@ func main() {
 	cfg := &config.Config{}
 	loader := config.NewLoader()
 
-	if err := loader.WithFileName(".env").Load(cfg); err != nil {
+	if err := loader.WithFileName("dist.env").Load(cfg); err != nil {
 		logrus.Fatalf("failed to load config: %v", err)
 	}
 
