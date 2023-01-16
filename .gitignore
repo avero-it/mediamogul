@@ -1,0 +1,5 @@
+.env
+/profiler/pprof
+/profiler/ab_benchmark
+vendor
+/bin
