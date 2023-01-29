@@ -2,9 +2,9 @@ package main
 
 import (
 	_ "expvar"
-	"github.com/avero-it/mediamogul/app/config"
-	"github.com/avero-it/mediamogul/app/deps"
-	"github.com/avero-it/mediamogul/app/mediamogul"
+	"github.com/avero-it/mediamogul/pkg/config"
+	"github.com/avero-it/mediamogul/pkg/deps"
+	"github.com/avero-it/mediamogul/pkg/mediamogul"
 	"github.com/sirupsen/logrus"
 )
 

@@ -18,15 +18,13 @@ type server struct {
 	log         *logrus.Entry
 	newRelicApp *newrelic.Application
 	STTURI      string
-	helper      httpHelper
 }
 
-func NewHttpServer(m *mux.Router, l *logrus.Entry, n *newrelic.Application, sttURI string, h httpHelper) *server {
+func NewHttpServer(m *mux.Router, l *logrus.Entry, n *newrelic.Application, sttURI string) *server {
 	return &server{
 		log:         l,
 		router:      m,
 		newRelicApp: n,
 		STTURI:      sttURI,
-		helper:      h,
 	}
 }

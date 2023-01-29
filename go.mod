@@ -1,4 +1,4 @@
-module mediamogul
+module github.com/avero-it/mediamogul
 
 go 1.19
 

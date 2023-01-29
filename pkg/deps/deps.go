@@ -1,9 +1,9 @@
 package deps
 
 import (
-	"github.com/avero-it/mediamogul/app/config"
-	"github.com/avero-it/mediamogul/app/httpserver"
-	"github.com/avero-it/mediamogul/app/signals"
+	"github.com/avero-it/mediamogul/pkg/config"
+	"github.com/avero-it/mediamogul/pkg/httpserver"
+	"github.com/avero-it/mediamogul/pkg/signals"
 	"github.com/gorilla/mux"
 	"github.com/newrelic/go-agent/v3/newrelic"
 	"github.com/sirupsen/logrus"
@@ -63,9 +63,7 @@ func NewDeps(config *config.Config, i AppInfo) (*Deps, error) {
 	// Create a traced mux router
 	deps.Router = mux.NewRouter()
 
-	helper := httpserver.NewHttpHelper()
-
-	server := httpserver.NewHttpServer(deps.Router, deps.Log, deps.NewRelicApp, config.STT.URI, helper)
+	server := httpserver.NewHttpServer(deps.Router, deps.Log, deps.NewRelicApp, config.STT.URI)
 
 	server.Routes()
 
