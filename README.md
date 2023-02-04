@@ -1,5 +1,5 @@
 # MediaMogul
-## A simple way to track what you see and find new friends that like whant you like
+## A simple way to track what you see and find new friends that like what you like
 
 ### Functionalities planned:
 Track seen media
