@@ -11,6 +11,7 @@ import (
 // =====================================================================================================================
 // MAIN
 func main() {
+	// new comment
 	info := deps.AppInfo{
 		Name:        "MediaMogul",
 		Description: "List of media likeds",
