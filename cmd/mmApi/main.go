@@ -23,7 +23,7 @@ func main() {
 	cfg := &config.Config{}
 	loader := config.NewLoader()
 
-	if err := loader.WithFileName("dist.env").Load(cfg); err != nil {
+	if err := loader.Load(cfg); err != nil {
 		logrus.Fatalf("failed to load config: %v", err)
 	}
 
